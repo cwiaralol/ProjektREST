@@ -15,8 +15,9 @@ namespace AplikacjaKurierska.API.Models
 		[Required]
 		[MinLength(3)]
 		public string Code { get; set; }
-
+		[Required]
 		public virtual ICollection<Service> Services { get; set; }
+		[Required]
 		public DeliveryWindow DeliveryWindow { get; set; }
 
 		

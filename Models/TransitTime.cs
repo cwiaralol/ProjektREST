@@ -11,14 +11,16 @@ namespace AplikacjaKurierska.API.Models
 	{
 		[ForeignKey("Modul")]
 		public int Id { get; set; }
+
+		[Required]
 		public string From{ get; set; }
-
+		[Required]
 		public string To{ get; set; }
-
+		[Required]
 		public TransitTimeAvailability Dispatch { get; set; }
-
+		[Required]
 		public TransitTimeAvailability Transit { get; set; }
-
+		[Required]
 		public TransitTimeAvailability Delivery { get; set; }
 	}
 }

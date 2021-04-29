@@ -8,8 +8,9 @@ namespace AplikacjaKurierska.API.Models
 {
 	public class Response
 	{
+		[Required]
 		public string PurchaseDate { get; set; }
-
+		[Required]
 		public PredictableDate[] PredictableDates { get; set; }
 	}
 }

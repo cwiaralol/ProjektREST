@@ -12,8 +12,9 @@ namespace AplikacjaKurierska.API.Models
 	{
 		[ForeignKey("Modul")]
 		public int Id { get; set; }
+		[Required]
 		public string From { get; set; }
-
+		[Required]
 		public string To { get; set; }
 	}
 

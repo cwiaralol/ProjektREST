@@ -24,20 +24,56 @@ namespace AplikacjaKurierska.API.Controllers
 		}
 
 
-
+		// autoryzacja / autentykacja JWT ZROBIONE 
 		[Authorize(Roles = "admin")]
 		[HttpPost("createModul")]
 		public async Task<IActionResult> CreateModul([FromBody] AplikacjaKurierska.API.Models.Modul newModule)
 		{
-			// autoryzacja / autentykacja JWT ZROBIONE 
-
+			
 			// validacja //DataAnnotation
 
+			if (newModule.Code == null)
+			{
+				//throw new ArgumentNullException("You need to write code ");
+				return StatusCode((int)HttpStatusCode.BadRequest);
+			}
+
+
+			if (newModule.DeliveryWindow == null)
+				{
+				//throw new ArgumentNullException("You need to write DeliveryWindow");
+				return StatusCode((int)HttpStatusCode.BadRequest);
+			}
+
+			if (newModule.DeliveryWindow.From == null)
+			{
+				//throw new ArgumentNullException("You need to write DeliveryWindow.from");
+				return StatusCode((int)HttpStatusCode.BadRequest);
+			}
+
+			if (newModule.DeliveryWindow.To == null)
+			{
+				//throw new ArgumentNullException("You need to write DeliveryWindow.To");
+				return StatusCode((int)HttpStatusCode.BadRequest);
+			}
+
+			if (newModule.Services == null)
+			{
+				//throw new ArgumentNullException("You need to write Services");
+				return StatusCode((int)HttpStatusCode.BadRequest);
+			}
+
+
+
+
+
+
+
+			// zapis na bazie danych //Entity Framework
 			_context.Moduls.Add(newModule);
 			await _context.SaveChangesAsync();
-			// zapis na bazie danych //Entity Framework
 
-			// odpwowiedź 201 / 400 / 403
+
 			//throw new ArgumentException(newModule.Code); //sprawdzamy czy wczytuje
 			return StatusCode((int)HttpStatusCode.Created);
 
