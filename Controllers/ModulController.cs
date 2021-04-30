@@ -63,7 +63,35 @@ namespace AplikacjaKurierska.API.Controllers
 				return StatusCode((int)HttpStatusCode.BadRequest);
 			}
 
+			foreach (var item in newModule.Services)
+			{
 
+				if (item.Name == null) return StatusCode((int)HttpStatusCode.BadRequest);
+				
+
+				if (item.TransitTimes== null) return StatusCode((int)HttpStatusCode.BadRequest);
+
+				foreach (var item2 in item.TransitTimes)
+				{
+					if (item2.From == null) return StatusCode((int)HttpStatusCode.BadRequest);
+					if (item2.To == null) return StatusCode((int)HttpStatusCode.BadRequest);
+					if (item2.Delivery == null) return StatusCode((int)HttpStatusCode.BadRequest);
+					if (item2.Dispatch == null) return StatusCode((int)HttpStatusCode.BadRequest);
+					if (item2.Transit == null) return StatusCode((int)HttpStatusCode.BadRequest);
+					/*
+					if((item2.Transit.Duration==null) return StatusCode((int)HttpStatusCode.BadRequest);
+					if (item2.Transit.Monday== null) return StatusCode((int)HttpStatusCode.BadRequest);
+					if (item2.Transit.Tuesday == null) return StatusCode((int)HttpStatusCode.BadRequest);
+					if (item2.Transit.Wednesday == null) return StatusCode((int)HttpStatusCode.BadRequest);
+					if (item2.Transit.Thursday == null) return StatusCode((int)HttpStatusCode.BadRequest);
+					if (item2.Transit.Friday == null) return StatusCode((int)HttpStatusCode.BadRequest);
+					if (item2.Transit.Saturday == null) return StatusCode((int)HttpStatusCode.BadRequest);
+					if (item2.Transit.Sunday == null) return StatusCode((int)HttpStatusCode.BadRequest);
+					*/
+					//if you don't add day of the week you will get always false, if you add transit it can be empty
+				}
+
+			}
 
 
 
@@ -80,4 +108,5 @@ namespace AplikacjaKurierska.API.Controllers
 		}
 
 	}
+
 }

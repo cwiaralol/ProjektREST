@@ -23,9 +23,11 @@ namespace AplikacjaKurierska.API.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("From")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("To")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -63,6 +65,7 @@ namespace AplikacjaKurierska.API.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -85,12 +88,14 @@ namespace AplikacjaKurierska.API.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("From")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("ServiceId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("To")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("TransitId")

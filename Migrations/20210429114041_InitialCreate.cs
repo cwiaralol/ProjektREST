@@ -12,8 +12,8 @@ namespace AplikacjaKurierska.API.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    From = table.Column<string>(type: "TEXT", nullable: true),
-                    To = table.Column<string>(type: "TEXT", nullable: true)
+                    From = table.Column<string>(type: "TEXT", nullable: false),
+                    To = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -94,7 +94,7 @@ namespace AplikacjaKurierska.API.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
                     ModulId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -114,8 +114,8 @@ namespace AplikacjaKurierska.API.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    From = table.Column<string>(type: "TEXT", nullable: true),
-                    To = table.Column<string>(type: "TEXT", nullable: true),
+                    From = table.Column<string>(type: "TEXT", nullable: false),
+                    To = table.Column<string>(type: "TEXT", nullable: false),
                     DispatchId = table.Column<int>(type: "INTEGER", nullable: true),
                     TransitId = table.Column<int>(type: "INTEGER", nullable: true),
                     DeliveryId = table.Column<int>(type: "INTEGER", nullable: true),

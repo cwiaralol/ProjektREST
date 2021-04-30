@@ -44,6 +44,8 @@ namespace AplikacjaKurierska.API.Controllers
                 return NotFound();
             }
 
+            //ogarnąć resztę pól 
+
 
 
   
