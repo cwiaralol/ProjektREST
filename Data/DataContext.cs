@@ -14,6 +14,8 @@ namespace AplikacjaKurierska.API.Data
 
         public DbSet<Modul> Moduls { get; set; }
 
+        public DbSet<Response> Responses { get; set; }
+
 
 
 

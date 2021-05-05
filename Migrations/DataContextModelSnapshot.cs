@@ -55,6 +55,47 @@ namespace AplikacjaKurierska.API.Migrations
                     b.ToTable("Moduls");
                 });
 
+            modelBuilder.Entity("AplikacjaKurierska.API.Models.PredictableDate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("From")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("ResponseId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("To")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ResponseId");
+
+                    b.ToTable("PredictableDate");
+                });
+
+            modelBuilder.Entity("AplikacjaKurierska.API.Models.Response", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ModulID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("PurchaseDate")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Responses");
+                });
+
             modelBuilder.Entity("AplikacjaKurierska.API.Models.Service", b =>
                 {
                     b.Property<int>("Id")
@@ -192,6 +233,13 @@ namespace AplikacjaKurierska.API.Migrations
                     b.Navigation("DeliveryWindow");
                 });
 
+            modelBuilder.Entity("AplikacjaKurierska.API.Models.PredictableDate", b =>
+                {
+                    b.HasOne("AplikacjaKurierska.API.Models.Response", null)
+                        .WithMany("PredictableDates")
+                        .HasForeignKey("ResponseId");
+                });
+
             modelBuilder.Entity("AplikacjaKurierska.API.Models.Service", b =>
                 {
                     b.HasOne("AplikacjaKurierska.API.Models.Modul", null)
@@ -227,6 +275,11 @@ namespace AplikacjaKurierska.API.Migrations
             modelBuilder.Entity("AplikacjaKurierska.API.Models.Modul", b =>
                 {
                     b.Navigation("Services");
+                });
+
+            modelBuilder.Entity("AplikacjaKurierska.API.Models.Response", b =>
+                {
+                    b.Navigation("PredictableDates");
                 });
 
             modelBuilder.Entity("AplikacjaKurierska.API.Models.Service", b =>

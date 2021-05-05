@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "MkHbSmc6XrFwVzN0ynmnVNasKHAu5CaXifYFbdvu44fBlhTuW8/GKI6bo4nCdW9oHil/LACB+r35kFruOFAERg==",
+  "dgSpecHash": "kbOhdVTkaDbZCKDeFOUduAdGrugIAP+1XSx/x53Z2EW5t7qgcqq6OefRKw0+e9S1gdPrs/IaQOow/2gvPKmavw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Miłosz\\Desktop\\ProjektMetapack\\AplikacjaKurierska\\AplikacjaKurierska.API\\AplikacjaKurierska.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Miłosz\\.nuget\\packages\\autofac\\6.2.0\\autofac.6.2.0.nupkg.sha512",
     "C:\\Users\\Miłosz\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Miłosz\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

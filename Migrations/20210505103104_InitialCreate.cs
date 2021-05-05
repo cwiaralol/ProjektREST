@@ -21,6 +21,20 @@ namespace AplikacjaKurierska.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Responses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PurchaseDate = table.Column<string>(type: "TEXT", nullable: true),
+                    ModulID = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Responses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TransitTimeAvailability",
                 columns: table => new
                 {
@@ -84,6 +98,27 @@ namespace AplikacjaKurierska.API.Migrations
                         name: "FK_Moduls_DeliveryWindow_DeliveryWindowId",
                         column: x => x.DeliveryWindowId,
                         principalTable: "DeliveryWindow",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PredictableDate",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    From = table.Column<string>(type: "TEXT", nullable: false),
+                    To = table.Column<string>(type: "TEXT", nullable: false),
+                    ResponseId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PredictableDate", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PredictableDate_Responses_ResponseId",
+                        column: x => x.ResponseId,
+                        principalTable: "Responses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -156,6 +191,11 @@ namespace AplikacjaKurierska.API.Migrations
                 column: "DeliveryWindowId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_PredictableDate_ResponseId",
+                table: "PredictableDate",
+                column: "ResponseId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Service_ModulId",
                 table: "Service",
                 column: "ModulId");
@@ -184,6 +224,9 @@ namespace AplikacjaKurierska.API.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "PredictableDate");
+
+            migrationBuilder.DropTable(
                 name: "TransitTime");
 
             migrationBuilder.DropTable(
@@ -191,6 +234,9 @@ namespace AplikacjaKurierska.API.Migrations
 
             migrationBuilder.DropTable(
                 name: "Values");
+
+            migrationBuilder.DropTable(
+                name: "Responses");
 
             migrationBuilder.DropTable(
                 name: "Service");
