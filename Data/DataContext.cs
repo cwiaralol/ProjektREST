@@ -16,6 +16,8 @@ namespace AplikacjaKurierska.API.Data
 
         public DbSet<Response> Responses { get; set; }
 
+        public DbSet<PredictableDate> PredictableDates { get; set; }
+
 
 
 

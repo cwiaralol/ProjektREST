@@ -10,13 +10,16 @@ namespace AplikacjaKurierska.API.Models
 	public class Response
 	{
 		[Required]
+		[Key]
 		public int Id { get; set; }
 
 		public string PurchaseDate { get; set; }
-		
-		public PredictableDate[] PredictableDates { get; set; }
 
 		[ForeignKey("Modul")]
 		public int ModulID { get; set; }
+
+		public virtual ICollection<PredictableDate> PredictableDates { get; set; }
+
+	
 	}
 }

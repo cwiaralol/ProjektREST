@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AplikacjaKurierska.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210505103104_InitialCreate")]
+    [Migration("20210507142207_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,7 +67,7 @@ namespace AplikacjaKurierska.API.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("ResponseId")
+                    b.Property<int>("ResponseId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("To")
@@ -78,7 +78,7 @@ namespace AplikacjaKurierska.API.Migrations
 
                     b.HasIndex("ResponseId");
 
-                    b.ToTable("PredictableDate");
+                    b.ToTable("PredictableDates");
                 });
 
             modelBuilder.Entity("AplikacjaKurierska.API.Models.Response", b =>
@@ -239,7 +239,9 @@ namespace AplikacjaKurierska.API.Migrations
                 {
                     b.HasOne("AplikacjaKurierska.API.Models.Response", null)
                         .WithMany("PredictableDates")
-                        .HasForeignKey("ResponseId");
+                        .HasForeignKey("ResponseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("AplikacjaKurierska.API.Models.Service", b =>

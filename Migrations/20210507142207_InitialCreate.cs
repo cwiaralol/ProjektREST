@@ -103,24 +103,24 @@ namespace AplikacjaKurierska.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PredictableDate",
+                name: "PredictableDates",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     From = table.Column<string>(type: "TEXT", nullable: false),
                     To = table.Column<string>(type: "TEXT", nullable: false),
-                    ResponseId = table.Column<int>(type: "INTEGER", nullable: true)
+                    ResponseId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PredictableDate", x => x.Id);
+                    table.PrimaryKey("PK_PredictableDates", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PredictableDate_Responses_ResponseId",
+                        name: "FK_PredictableDates_Responses_ResponseId",
                         column: x => x.ResponseId,
                         principalTable: "Responses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -191,8 +191,8 @@ namespace AplikacjaKurierska.API.Migrations
                 column: "DeliveryWindowId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PredictableDate_ResponseId",
-                table: "PredictableDate",
+                name: "IX_PredictableDates_ResponseId",
+                table: "PredictableDates",
                 column: "ResponseId");
 
             migrationBuilder.CreateIndex(
@@ -224,7 +224,7 @@ namespace AplikacjaKurierska.API.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PredictableDate");
+                name: "PredictableDates");
 
             migrationBuilder.DropTable(
                 name: "TransitTime");

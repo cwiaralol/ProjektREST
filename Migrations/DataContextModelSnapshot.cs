@@ -65,7 +65,7 @@ namespace AplikacjaKurierska.API.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("ResponseId")
+                    b.Property<int>("ResponseId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("To")
@@ -76,7 +76,7 @@ namespace AplikacjaKurierska.API.Migrations
 
                     b.HasIndex("ResponseId");
 
-                    b.ToTable("PredictableDate");
+                    b.ToTable("PredictableDates");
                 });
 
             modelBuilder.Entity("AplikacjaKurierska.API.Models.Response", b =>
@@ -237,7 +237,9 @@ namespace AplikacjaKurierska.API.Migrations
                 {
                     b.HasOne("AplikacjaKurierska.API.Models.Response", null)
                         .WithMany("PredictableDates")
-                        .HasForeignKey("ResponseId");
+                        .HasForeignKey("ResponseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("AplikacjaKurierska.API.Models.Service", b =>
