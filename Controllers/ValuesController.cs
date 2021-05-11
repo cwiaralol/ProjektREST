@@ -28,7 +28,7 @@ namespace AplikacjaKurierska.API.Controllers
 
 
         //GET api/values http:localhost:5000/api/values
-        [Authorize(Roles ="admin")] // more roles = [Authorize(Roles="admin,user")] etc.
+        [Authorize(Roles ="admin,user")] // more roles = [Authorize(Roles="admin,user")] etc.
         [HttpGet]
         public async Task <IActionResult> GetValues()
         {

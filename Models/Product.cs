@@ -9,9 +9,8 @@ namespace AplikacjaKurierska.API.Models
     {
         public string purchaseDate { get; set; }
 
-        public virtual ICollection<PredictableDate> PredictableDates { get; set; }
 
-       // public string From { get; set; }
-        //public string To { get; set; }
+        public string From { get; set; }
+        public string To { get; set; }
     }
 }
