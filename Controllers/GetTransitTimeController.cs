@@ -42,7 +42,35 @@ namespace AplikacjaKurierska.API.Controllers
             DateTime fromquery = DateTime.Today;
             DateTime Toquery = DateTime.Today;
 
-
+            String[] EuropeanUnion = new string[27] { 
+                "BE", 
+                "BG",
+                "CZ",
+                "DK",
+                "DE",
+                "EE",
+                "IE",
+                "EL",
+                "ES",
+                "FR",
+                "HR",
+                "IT",
+                "CY",
+                "LV",
+                "LT",
+                "LU",
+                "HU",
+                "MT",
+                "NL",
+                "AT",
+                "PL",
+                "PT",
+                "RO",
+                "SI",
+                "SK",
+                "FI",
+                "SE",
+            };
 
             int idmodul = 0;
             var values = await _context.Moduls.Where(li => li.Code == moduleCode).ToListAsync();
@@ -83,6 +111,15 @@ namespace AplikacjaKurierska.API.Controllers
             //int dispatchid = 0;
             // int transitid = 0;
             //int deliveryid = 0;
+
+            if (moduleCode == "GLS")
+            {
+                for (int i = 0; i < 27; i++)
+                {
+                    if (toCountry == EuropeanUnion[i]) toCountry = "UE";
+                }
+            }
+
             var uriwithallparameters = await _context.Moduls
                 .Where(li => li.Code == moduleCode)
                 .Include(x => x.Services)
@@ -111,6 +148,10 @@ namespace AplikacjaKurierska.API.Controllers
                         pom += 1;
                         foreach (var transittime in servicename.TransitTimes)
                         {
+
+                     
+
+                          
                             if (transittime.From == fromCountry && transittime.To == toCountry)
                             {
                                 pom2 += 1;
