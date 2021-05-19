@@ -108,7 +108,7 @@ namespace AplikacjaKurierska.API.Controllers
 
 
 		//PUT editModul/5
-		[AllowAnonymous]
+		[Authorize(Roles = "admin")]
 		[HttpPut("editModul/{id}")]
 		public async Task<IActionResult> EditValue(int id, [FromBody] AplikacjaKurierska.API.Models.Modul newModule)
 		{

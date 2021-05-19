@@ -91,3 +91,4 @@ C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.A
 C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.API\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.API\bin\Debug\net5.0\Autofac.dll
 C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.API\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.API\bin\Debug\net5.0\Docker.DotNet.dll
