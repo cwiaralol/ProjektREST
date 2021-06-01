@@ -20,13 +20,8 @@ namespace AplikacjaKurierska.API.Models
 		[Required]
 		public DeliveryWindow DeliveryWindow { get; set; }
 
-		/*
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
-		{
-			modelBuilder.Entity<DeliveryWindow>()
-				.HasNoKey();
-		}
-		*/
+		
+		
 
 
 

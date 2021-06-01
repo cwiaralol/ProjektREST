@@ -192,7 +192,21 @@ namespace AplikacjaKurierska.API.Controllers
 
 
 
+		//DELETE api/values/5
+		[Authorize(Roles = "admin")]
+		[HttpDelete("deleteModul/{id}")]
+		public async Task<IActionResult> DeleteValue(int id)
+		{
+			var data = await _context.Moduls.FindAsync(id);
+			_context.Moduls.Remove(data);
+			await _context.SaveChangesAsync();
+			return Ok(data);
 		}
+
+
+
+
+	}
 
 
 

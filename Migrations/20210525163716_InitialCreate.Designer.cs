@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AplikacjaKurierska.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210507142207_InitialCreate")]
+    [Migration("20210525163716_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

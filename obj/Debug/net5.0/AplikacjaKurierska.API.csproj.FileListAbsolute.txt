@@ -92,3 +92,8 @@ C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.A
 C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.API\bin\Debug\net5.0\Autofac.dll
 C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.API\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.API\bin\Debug\net5.0\Docker.DotNet.dll
+C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.API\bin\Debug\net5.0\Microsoft.AspNetCore.TestHost.dll
+C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.API\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.API\bin\Debug\net5.0\xunit.abstractions.dll
+C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.API\bin\Debug\net5.0\xunit.assert.dll
+C:\Users\Miłosz\Desktop\ProjektMetapack\AplikacjaKurierska\AplikacjaKurierska.API\bin\Debug\net5.0\xunit.core.dll

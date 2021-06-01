@@ -53,6 +53,11 @@ namespace AplikacjaKurierska.API.Migrations
                     b.HasIndex("DeliveryWindowId");
 
                     b.ToTable("Moduls");
+
+                    b.HasMany("Services")
+                    .WithOne("Moduls")
+                    .HasForeignKey("ModulId")
+                    .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("AplikacjaKurierska.API.Models.PredictableDate", b =>
@@ -240,32 +245,43 @@ namespace AplikacjaKurierska.API.Migrations
                         .HasForeignKey("ResponseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
                 });
 
             modelBuilder.Entity("AplikacjaKurierska.API.Models.Service", b =>
                 {
                     b.HasOne("AplikacjaKurierska.API.Models.Modul", null)
                         .WithMany("Services")
-                        .HasForeignKey("ModulId");
+                        .HasForeignKey("ModulId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("AplikacjaKurierska.API.Models.TransitTime", b =>
                 {
                     b.HasOne("AplikacjaKurierska.API.Models.TransitTimeAvailability", "Delivery")
                         .WithMany()
-                        .HasForeignKey("DeliveryId");
+                        .HasForeignKey("DeliveryId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AplikacjaKurierska.API.Models.TransitTimeAvailability", "Dispatch")
                         .WithMany()
-                        .HasForeignKey("DispatchId");
+                        .HasForeignKey("DispatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AplikacjaKurierska.API.Models.Service", null)
                         .WithMany("TransitTimes")
-                        .HasForeignKey("ServiceId");
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AplikacjaKurierska.API.Models.TransitTimeAvailability", "Transit")
                         .WithMany()
-                        .HasForeignKey("TransitId");
+                        .HasForeignKey("TransitId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Delivery");
 
